@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		06BE0B9D298E64A900EDEC99 /* UserGuessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BE0B9C298E64A900EDEC99 /* UserGuessingView.swift */; };
 		06BE0B9F298E6D6B00EDEC99 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BE0B9E298E6D6B00EDEC99 /* ResultView.swift */; };
+		06BE0BA2299185D100EDEC99 /* GuessTheNumberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BE0BA1299185D100EDEC99 /* GuessTheNumberModel.swift */; };
+		06BE0BA72992392400EDEC99 /* NavigationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BE0BA62992392400EDEC99 /* NavigationUtil.swift */; };
 		06C75BF0298D3C1900BF3E5D /* GuessTheNumberApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C75BEF298D3C1900BF3E5D /* GuessTheNumberApp.swift */; };
 		06C75BF2298D3C1900BF3E5D /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C75BF1298D3C1900BF3E5D /* StartView.swift */; };
 		06C75BF4298D3C1A00BF3E5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06C75BF3298D3C1A00BF3E5D /* Assets.xcassets */; };
@@ -16,12 +18,14 @@
 		06C75BFE298D4A5500BF3E5D /* GuessTheNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C75BFD298D4A5500BF3E5D /* GuessTheNumberView.swift */; };
 		06C75C01298D56B900BF3E5D /* ComputerGuessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C75C00298D56B900BF3E5D /* ComputerGuessingView.swift */; };
 		06C75C04298E471C00BF3E5D /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C75C03298E471C00BF3E5D /* ViewExtensions.swift */; };
-		06C75C07298E4C1200BF3E5D /* GuessTheNumberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C75C06298E4C1200BF3E5D /* GuessTheNumberModel.swift */; };
+		06C75C07298E4C1200BF3E5D /* GuessTheNumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C75C06298E4C1200BF3E5D /* GuessTheNumberViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		06BE0B9C298E64A900EDEC99 /* UserGuessingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGuessingView.swift; sourceTree = "<group>"; };
 		06BE0B9E298E6D6B00EDEC99 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		06BE0BA1299185D100EDEC99 /* GuessTheNumberModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTheNumberModel.swift; sourceTree = "<group>"; };
+		06BE0BA62992392400EDEC99 /* NavigationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUtil.swift; sourceTree = "<group>"; };
 		06C75BEC298D3C1900BF3E5D /* GuessTheNumber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuessTheNumber.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06C75BEF298D3C1900BF3E5D /* GuessTheNumberApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTheNumberApp.swift; sourceTree = "<group>"; };
 		06C75BF1298D3C1900BF3E5D /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
@@ -30,7 +34,7 @@
 		06C75BFD298D4A5500BF3E5D /* GuessTheNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTheNumberView.swift; sourceTree = "<group>"; };
 		06C75C00298D56B900BF3E5D /* ComputerGuessingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerGuessingView.swift; sourceTree = "<group>"; };
 		06C75C03298E471C00BF3E5D /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
-		06C75C06298E4C1200BF3E5D /* GuessTheNumberModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTheNumberModel.swift; sourceTree = "<group>"; };
+		06C75C06298E4C1200BF3E5D /* GuessTheNumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GuessTheNumberViewModel.swift; path = ../Model/GuessTheNumberViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,9 +48,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06BE0BA0299185B300EDEC99 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				06C75C06298E4C1200BF3E5D /* GuessTheNumberViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		06C75BE3298D3C1900BF3E5D = {
 			isa = PBXGroup;
 			children = (
+				06BE0BA0299185B300EDEC99 /* ViewModel */,
 				06C75C05298E4BF700BF3E5D /* Model */,
 				06C75C02298E46EA00BF3E5D /* Extensions */,
 				06C75BFF298D502E00BF3E5D /* Views */,
@@ -66,6 +79,7 @@
 		06C75BEE298D3C1900BF3E5D /* GuessTheNumber */ = {
 			isa = PBXGroup;
 			children = (
+				06BE0BA62992392400EDEC99 /* NavigationUtil.swift */,
 				06C75BEF298D3C1900BF3E5D /* GuessTheNumberApp.swift */,
 				06C75BF3298D3C1A00BF3E5D /* Assets.xcassets */,
 				06C75BF5298D3C1A00BF3E5D /* Preview Content */,
@@ -104,7 +118,7 @@
 		06C75C05298E4BF700BF3E5D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				06C75C06298E4C1200BF3E5D /* GuessTheNumberModel.swift */,
+				06BE0BA1299185D100EDEC99 /* GuessTheNumberModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -179,14 +193,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06C75C07298E4C1200BF3E5D /* GuessTheNumberModel.swift in Sources */,
+				06C75C07298E4C1200BF3E5D /* GuessTheNumberViewModel.swift in Sources */,
 				06C75C01298D56B900BF3E5D /* ComputerGuessingView.swift in Sources */,
 				06C75BF2298D3C1900BF3E5D /* StartView.swift in Sources */,
 				06C75BF0298D3C1900BF3E5D /* GuessTheNumberApp.swift in Sources */,
 				06C75C04298E471C00BF3E5D /* ViewExtensions.swift in Sources */,
 				06BE0B9F298E6D6B00EDEC99 /* ResultView.swift in Sources */,
 				06C75BFE298D4A5500BF3E5D /* GuessTheNumberView.swift in Sources */,
+				06BE0BA72992392400EDEC99 /* NavigationUtil.swift in Sources */,
 				06BE0B9D298E64A900EDEC99 /* UserGuessingView.swift in Sources */,
+				06BE0BA2299185D100EDEC99 /* GuessTheNumberModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,57 +9,33 @@ import SwiftUI
 
 struct ComputerGuessingView: View {
    
-    
-    @State private var min = 1
-    @State private var max = 10
-    @State private var number = Int.random(in: 1...10)
-    @State private var resultString = ""
     @State private var hideNextButton = true
-    @EnvironmentObject var model : GuessTheNumberModel
+    @EnvironmentObject var viewModel : GuessTheNumberViewModel
     
     var body: some View {
         
         VStack{
-            Text(resultString)
+            Text(viewModel.cpuResult)
             Spacer()
-            Text("CPU attempts: \(model.cpuAttempts)")
+            Text("CPU attempts: \(viewModel.gtn.cpuAttempts)")
                 .padding(.vertical, 2)
-            Text("The number is \(number)?")
+            Text("The number is \(viewModel.cpuThink)?")
             Spacer()
             ZStack{
                 HStack{
                     Button("It was more") {
-                        model.cpuAttempts += 1
-                        if number + 1 > 10 {
-                            resultString = "Error. It cant be more."
-                            toStart()
-                        }
-                        else {
-                            resultString = ""
-                            min = number+1
-                            number = Int.random(in:min...max)
-                        }
+                        viewModel.cpuThinkMore()
                     }
                     .grayButton()
                     
                     Button("Yes!") {
-                        model.cpuAttempts += 1
-                        resultString = "Yay!"
+                        viewModel.cpuCorrect()
                         hideNextButton = false
                     }
                     .grayButton()
                     
                     Button("It was less") {
-                        model.cpuAttempts += 1
-                        if number - 1 < 1 {
-                            resultString = "Error. It cant be less."
-                            toStart()
-                        }
-                        else {
-                            resultString = ""
-                            max = number - 1
-                            number = Int.random(in:min...max)
-                        }
+                        viewModel.cpuThinkLess()
                     }
                     .grayButton()
                 }
@@ -72,16 +48,11 @@ struct ComputerGuessingView: View {
             }
         }
     }
-    
-    func toStart() {
-        min = 1
-        max = 10
-    }
 }
 
 struct ComputerGuessingView_Previews: PreviewProvider {
     static var previews: some View {
         ComputerGuessingView()
-            .environmentObject(GuessTheNumberModel())
+            .environmentObject(GuessTheNumberViewModel())
     }
 }

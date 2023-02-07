@@ -1,16 +1,13 @@
 //
-//  GuessTheNumberModel.swift
+//  GuessTheNumberViewModel.swift
 //  GuessTheNumber
 //
-//  Created by Михаил Железовский on 04.02.2023.
+//  Created by Михаил Железовский on 06.02.2023.
 //
 
 import Foundation
-import SwiftUI
 
-@MainActor class GuessTheNumberModel: ObservableObject {
-    @Published var cpuAttempts = 0
-    @Published var usrAttempts = 0
-    
-    let cpuNumber = Int.random(in: 1...10)
+struct GuessTheNumberModel {
+    var cpuAttempts : Int
+    var usrAttempts : Int
 }

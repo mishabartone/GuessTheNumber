@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StartView: View {
     
-    @StateObject var model : GuessTheNumberModel = GuessTheNumberModel()
+    @StateObject var model : GuessTheNumberViewModel = GuessTheNumberViewModel()
     
     var body: some View {
         NavigationView {
@@ -25,14 +25,16 @@ struct StartView: View {
                     NavigationLink(destination: GuessTheNumberView()) {
                         Text("Play \"Guess the numbers\"")
                     }
-                    .buttonStyle(.borderedProminent)
-                    .controlSize(.large)
-                    .tint(.black)
+                                   .buttonStyle(.borderedProminent)
+                                   .controlSize(.large)
+                                   .tint(.black)
                 }
+                
             }
         }
         .environmentObject(model)
     }
+    
 }
 
 struct StartView_Previews: PreviewProvider {

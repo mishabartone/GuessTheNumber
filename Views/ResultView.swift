@@ -9,13 +9,14 @@ import SwiftUI
 
 struct ResultView: View {
     
-    @EnvironmentObject var model : GuessTheNumberModel
+    @EnvironmentObject var viewModel : GuessTheNumberViewModel
+    @Environment(\.presentationMode) var presentation
     
     var result: String {
         get {
-            if model.cpuAttempts == model.usrAttempts {
+            if viewModel.gtn.cpuAttempts == viewModel.gtn.usrAttempts {
                 return "Its draw"
-            } else if model.cpuAttempts > model.usrAttempts {
+            } else if viewModel.gtn.cpuAttempts > viewModel.gtn.usrAttempts {
                 return "You are winning, Son!"
             } else {
                 return"You lose!"
@@ -26,7 +27,14 @@ struct ResultView: View {
     var body: some View {
         VStack{
             Text(result)
-            Text("CPU attempts: \(model.cpuAttempts), User attempts: \(model.usrAttempts)")
+            Text("CPU attempts: \(viewModel.gtn.cpuAttempts), User attempts: \(viewModel.gtn.usrAttempts)")
+            Button (action: {
+                NavigationUtil.popToRootView()
+                viewModel.restart()
+            } ){
+                Text("Play again!")
+            }
+            .grayButton()
         }
     }
 }
@@ -34,6 +42,6 @@ struct ResultView: View {
 struct ResultView_Previews: PreviewProvider {
     static var previews: some View {
         ResultView()
-            .environmentObject(GuessTheNumberModel())
+            .environmentObject(GuessTheNumberViewModel())
     }
 }

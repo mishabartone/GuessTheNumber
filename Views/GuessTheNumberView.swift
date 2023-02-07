@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct GuessTheNumberView: View {
+
     var body: some View {
         VStack {
             Text("Now you need to guess any number from 1 to 10")
@@ -18,7 +19,6 @@ struct GuessTheNumberView: View {
                 Text("I guessed a number!")
             }
             .grayButton()
-
         }
     }
 }

@@ -11,15 +11,13 @@ import Combine
 struct UserGuessingView: View {
     
     @State var strNumber = ""
-    @State var areYouWinningSon = ""
-    @EnvironmentObject var model : GuessTheNumberModel
-    @State private var hideNextButton = true
+    @EnvironmentObject var viewModel : GuessTheNumberViewModel
     
     var body: some View {
         VStack{
-            Text(areYouWinningSon)
-            Text("\(model.cpuNumber)")
-            Text("User attempts: \(model.usrAttempts)")
+            Text(viewModel.usrResult)
+            //Text("\(viewModel.cpuNumber)")
+            Text("User attempts: \(viewModel.gtn.usrAttempts)")
                 .padding(.vertical, 2)
             Spacer()
             Text("Your turn\nTry to guess the number from 1 to 10")
@@ -39,23 +37,17 @@ struct UserGuessingView: View {
             Spacer()
             ZStack{
                 Button("Am i guessed?") {
-                    model.usrAttempts += 1
                     let usrNumber = Int(strNumber)
-                    if model.cpuNumber == usrNumber {
-                        areYouWinningSon = "You win!"
-                        hideNextButton = false
-                    } else {
-                        areYouWinningSon = usrNumber! > model.cpuNumber ? "Its less" : "Its more"
-                    }
+                    viewModel.checkUsrTry(usrNumber: usrNumber)
                 }
-                .isHidden(!hideNextButton)
+                .isHidden(!viewModel.hideUsrNextButton)
                 .grayButton()
                 .padding()
                 NavigationLink(destination: ResultView()) {
                     Text("I guessed a number!")
                 }
                 .grayButton()
-                .isHidden(hideNextButton)
+                .isHidden(viewModel.hideUsrNextButton)
             }
         }
     }
@@ -64,6 +56,6 @@ struct UserGuessingView: View {
 struct UserGuessingView_Previews: PreviewProvider {
     static var previews: some View {
         UserGuessingView()
-            .environmentObject(GuessTheNumberModel())
+            .environmentObject(GuessTheNumberViewModel())
     }
 }
